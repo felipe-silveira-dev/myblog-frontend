@@ -1,4 +1,25 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+interface IUser {
+  id: number;
+  name: string;
+  email: string;
+}
+
 const Home = () => {
+  const [user, setUser] = useState<IUser>();
+
+  useEffect(() => {
+    axios.get<IUser>('https://jsonplaceholder.typicode.com/users/1').
+    then(response => {
+      setUser(response.data);
+    }).
+    catch(error => {
+      console.log(error);
+    });
+  },[]);
+  
   return (
     <div className="w-full max-w-4xl px-6 mx-auto lg:max-w-7xl">
         <div className="flex flex-col w-full">
@@ -14,11 +35,21 @@ const Home = () => {
               src="https://avatars.githubusercontent.com/u/112597501?v=4"
             />
           </div>
-          <h1 className="my-3 text-4xl font-bold">Junior Software Engineer.</h1>
+          <h1 className="my-3 text-4xl font-bold">Software Engineer.</h1>
           <p className="text-md">
             Bem vindo ao meu blog! Eu sou Felipe Silveira, apaixonado por
             tecnologia, sempre buscando aprender algo novo todos os dias.
           </p>
+          {user && (
+            <div className="mt-3">
+              <p className="text-md">
+                <strong>Nome:</strong> {user.name}
+              </p>
+              <p className="text-md">
+                <strong>Email:</strong> {user.email}
+              </p>
+            </div>
+          )}
         </div>
         <div className="mt-12">
           <div className="w-full pb-12">
