@@ -1,9 +1,15 @@
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./home/Home";
 
 function App() {
-
   return (
     <>
-      <div className="border border-red-600">App</div>
+      <div>
+        <Navbar />
+        <Home />
+        <Footer />
+      </div>
     </>
   );
 }
