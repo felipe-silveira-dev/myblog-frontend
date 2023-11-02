@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <header className="fixed z-40 flex flex-row items-center justify-between w-full h-16 p-5 transition-all duration-300 ease-in-out shadow-lg lg:px-10 bg-primary/50 backdrop-blur-lg">
@@ -27,6 +29,9 @@ const Navbar = () => {
           </li>
           <li className="relative font-light transition-colors hover:text-link text-md false">
             <a href="/">Contato</a>
+          </li>
+          <li className="relative font-light transition-colors hover:text-link text-md false">
+            <Link to="/login">Login</Link>
           </li>
         </ul>
         <div className="z-50 flex transition-all duration-200 hover:text-link lg:hidden"></div>

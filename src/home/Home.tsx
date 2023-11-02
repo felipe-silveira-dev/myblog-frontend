@@ -1,7 +1,6 @@
 const Home = () => {
   return (
     <div className="w-full max-w-4xl px-6 mx-auto lg:max-w-7xl">
-      <main className="pt-28">
         <div className="flex flex-col w-full">
           <div>
             <img
@@ -184,7 +183,6 @@ const Home = () => {
             Mais posts
           </button>
         </div>
-      </main>
     </div>
   );
 };
