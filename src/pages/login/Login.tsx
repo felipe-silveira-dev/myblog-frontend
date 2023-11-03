@@ -13,7 +13,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center w-full max-w-4xl px-6 mx-auto lg:max-w-7xl">
-      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-[#222] dark:border-gray-700">
+      <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-6 md:p-8 dark:bg-[#222] dark:border-gray-700">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform
@@ -86,7 +86,7 @@ const Login = () => {
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
             Not registered?{" "}
             <a
-              href="#"
+              href="/users/create"
               className="text-blue-700 hover:underline dark:text-blue-500"
             >
               Create account
