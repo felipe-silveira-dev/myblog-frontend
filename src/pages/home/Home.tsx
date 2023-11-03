@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "../../contexts/UserContext";
+import { Link, useNavigate } from "react-router-dom";
 
 interface IUser {
   id: number;
@@ -9,6 +11,7 @@ interface IUser {
 
 const Home = () => {
   const [user, setUser] = useState<IUser>();
+  const { name } = useContext(UserContext);
 
   useEffect(() => {
     axios.get<IUser>('https://jsonplaceholder.typicode.com/users/1').
@@ -43,7 +46,7 @@ const Home = () => {
           {user && (
             <div className="mt-3">
               <p className="text-md">
-                <strong>Nome:</strong> {user.name}
+                <strong>Nome:</strong> {user.name} ou {name}
               </p>
               <p className="text-md">
                 <strong>Email:</strong> {user.email}
