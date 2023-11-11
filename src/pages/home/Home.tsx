@@ -1,7 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
-import { UserContext } from "../../contexts/UserContext";
-import { Link, useNavigate } from "react-router-dom";
 
 interface IUser {
   id: number;
@@ -11,12 +9,23 @@ interface IUser {
 
 const Home = () => {
   const [user, setUser] = useState<IUser>();
-  const { name } = useContext(UserContext);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     axios.get<IUser>('https://jsonplaceholder.typicode.com/users/1').
       then(response => {
         setUser(response.data);
+      }).
+      catch(error => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios.get('http://myblog-backend.test/api/users').
+      then(response => {
+        setUsers(response.data);
+        console.log(users);
       }).
       catch(error => {
         console.log(error);
@@ -43,10 +52,27 @@ const Home = () => {
           Bem vindo ao meu blog! Eu sou Felipe Silveira, apaixonado por
           tecnologia, sempre buscando aprender algo novo todos os dias.
         </p>
+
+        {users && (
+          <div className="mt-3">
+            {users.map((user) => (
+              <div key={user.id}>
+                <p className="text-md">
+                  <strong>Nome:</strong> {user.name}
+                </p>
+                <p className="text-md">
+                  <strong>Email:</strong> {user.email}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+
         {user && (
           <div className="mt-3">
             <p className="text-md">
-              <strong>Nome:</strong> {user.name} ou {name}
+              <strong>Nome:</strong> {user.name}
             </p>
             <p className="text-md">
               <strong>Email:</strong> {user.email}

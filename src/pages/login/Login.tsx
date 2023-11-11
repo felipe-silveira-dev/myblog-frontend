@@ -1,20 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { Link, useNavigate } from "react-router-dom";
-
 const Login = () => {
-  const { name, setName } = useContext(UserContext);
-  let navigate = useNavigate();
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    navigate("/home");
-  }
 
   return (
     <div className="flex items-center justify-center w-full max-w-4xl px-6 mx-auto lg:max-w-7xl">
       <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-xl sm:p-6 md:p-8 dark:bg-[#222] dark:border-gray-700">
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-6">
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to our platform
           </h5>
@@ -31,8 +20,6 @@ const Login = () => {
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
               required
             />
           </div>
