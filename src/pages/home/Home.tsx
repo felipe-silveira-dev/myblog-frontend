@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react";
 import axios from "axios";
+import Post from "../../components/post/Post";
 
 interface IUser {
   id: number;
@@ -123,119 +124,13 @@ const Home = () => {
           </a>
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <a
-            className="flex flex-col w-full p-4 border shadow-2xl transition-colors duration-300 rounded-lg hover:border hover:border-[#bb86fc] false"
-            href="/"
-          >
-            <div className="relative w-full h-80 false">
-              <img
-                alt="O post title"
-                decoding="async"
-                data-nimg="fill"
-                className="object-cover object-center transition-all duration-300 ease-in-out rounded-xl bg-primary group-hover:border-slate-900"
-                src="https://miro.medium.com/v2/resize:fit:1200/1*V7jiZvQBIwUhUY_9VU8Jqg.jpeg"
-              />
-            </div>
-            <div className="pt-3 false">
-              <div className="flex flex-wrap gap-2 mb-3">
-                <a className="group" href="#">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    React
-                  </p>
-                </a>
-                <a className="group" href="/categories?category=Livewire">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    AlpineJS
-                  </p>
-                </a>
-              </div>
-              <div className="text-gray-400">
-                <time className="">
-                  15 de maio de 2023 • 3 minutos de leitura
-                </time>
-              </div>
-              <p className="max-w-md mt-2 text-2xl font-medium text-ellipsis text-gray-50">
-                O post title
-              </p>
-              <p className="mt-3 text-gray-300">Vamos aprender React.js!</p>
-            </div>
-          </a>
-          <a
-            className="flex flex-col w-full p-3 transition-colors duration-300 border-2 border-transparent rounded-lg hover:border-link false"
-            href="/"
-          >
-            <div className="relative w-full h-80 false">
-              <img
-                alt="O post title"
-                decoding="async"
-                data-nimg="fill"
-                className="object-cover object-center transition-all duration-300 ease-in-out rounded-xl bg-primary group-hover:border-slate-900"
-                sizes="(max-width: 768px) 100vw, 768px"
-                src=""
-              />
-            </div>
-            <div className="pt-3 false">
-              <div className="flex flex-wrap gap-2 mb-3">
-                <a className="group" href="/categories?category=react">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    React
-                  </p>
-                </a>
-                <a className="group" href="/categories?category=Livewire">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    React
-                  </p>
-                </a>
-              </div>
-              <div className="text-gray-400">
-                <time className="">
-                  15 de maio de 2023 • 3 minutos de leitura
-                </time>
-              </div>
-              <p className="max-w-md mt-2 text-2xl font-medium text-ellipsis text-gray-50">
-                O post title
-              </p>
-              <p className="mt-3 text-gray-300">Vamos aprender React.js!</p>
-            </div>
-          </a>
-          <a
-            className="flex flex-col w-full p-3 transition-colors duration-300 border-2 border-transparent rounded-lg hover:border-link false"
-            href="/"
-          >
-            <div className="relative w-full h-80 false">
-              <img
-                alt="O post title"
-                decoding="async"
-                data-nimg="fill"
-                className="object-cover object-center transition-all duration-300 ease-in-out rounded-xl bg-primary group-hover:border-slate-900"
-                sizes="(max-width: 768px) 100vw, 768px"
-                src=""
-              />
-            </div>
-            <div className="pt-3 false">
-              <div className="flex flex-wrap gap-2 mb-3">
-                <a className="group" href="/categories?category=react">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    React
-                  </p>
-                </a>
-                <a className="group" href="/categories?category=Livewire">
-                  <p className="rounded-2xl bg-gray-500 px-3 py-1 font-normal capitalize text-gray-200 transition-colors duration-300 group-hover:bg-gray-200 group-hover:text-primary text-sm )}">
-                    Livewire
-                  </p>
-                </a>
-              </div>
-              <div className="text-gray-400">
-                <time className="">
-                  15 de maio de 2023 • 3 minutos de leitura
-                </time>
-              </div>
-              <p className="max-w-md mt-2 text-2xl font-medium text-ellipsis text-gray-50">
-                O post title
-              </p>
-              <p className="mt-3 text-gray-300">Vamos aprender React.js!</p>
-            </div>
-          </a>
+          <Post 
+            title="O post title"
+            image="https://miro.medium.com/v2/resize:fit:1200/1*V7jiZvQBIwUhUY_9VU8Jqg.jpeg"
+            categories={['React', 'AlpineJS']}
+            date="15 de maio de 2023 • 3 minutos de leitura"
+            description="Vamos aprender React.js!"
+          />
         </div>
       </div>
       <div className="flex justify-center w-full pb-8 mt-20">

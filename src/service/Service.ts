@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: "http://localhost:8000/api/",
+export const api = axios.create({
+    baseURL: "http://myblog-backend.test/api",
 });
 
 export const storeUser = async (url: string, data: Object, setData: Function) => {
